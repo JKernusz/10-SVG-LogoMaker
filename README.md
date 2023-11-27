@@ -1,6 +1,8 @@
 # 10-SVG-LogoMaker
 ## Logo Maker
 
+Link to demonstration: https://drive.google.com/file/d/1yzq15sc8eR6xf8NUu3GwFOYWv9fWI6mg/view
+
 This project is a logo maker that creates SVG logos using JavaScript and Node.js. The user will be prompted to choose a shape (triangle, square, or circle), enter a color, enter a color for the text, and enter three letters to be displayed in the logo. The application will then create an SVG file with the chosen shape and text.
 
 ## Getting Started
