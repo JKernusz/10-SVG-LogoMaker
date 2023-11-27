@@ -11,11 +11,10 @@ class Triangle extends Shape {
     super(color, color2, text);
   }
   draw() {
-    return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <rect x="0" y="0" width="300" height="200" fill="${this.color}" stroke="${this.color2}" stroke-width="10"/>
-        <polygon points="100,100 200,100 150,150" fill="${this.color2}" stroke="${this.color2}" stroke-width="10"/>
-        <text x="150" y="150" fill="${this.color2}" stroke="${this.color2}" stroke-width="10">${this.text}</text>
-        </svg>`;
+    return `<svg version="1.1"
+    width="300" height="200"
+    xmlns="http://www.w3.org/2000/svg"><polygon points="150, 18 244, 182 56, 182" fill="${this.color}" />
+    <text x="150" y="140" font-size="45" text-anchor="middle" fill="${this.color2}">${this.text}</text></svg>`
   }
 }
 
@@ -24,11 +23,10 @@ class Square extends Shape {
     super(color, color2, text);
   }
   draw() {
-    return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <rect x="0" y="0" width="300" height="200" fill="${this.color}" stroke="${this.color2}" stroke-width="10"/>
-        <rect x="100" y="100" width="100" height="100" fill="${this.color2}" stroke="${this.color2}" stroke-width="10"/>
-        <text x="150" y="150" fill="${this.color2}" stroke="${this.color2}" stroke-width="10">${this.text}</text>
-        </svg>`;
+    return `<svg version="1.1"
+    width="300" height="200"
+    xmlns="http://www.w3.org/2000/svg"><rect x="70" y="33" width="170" height="170" fill="${this.color}"/>
+    <text x="155" y="130" font-size="60" text-anchor="middle" fill="${this.color2}">${this.text}</text></svg>`;
   }
 }
 
@@ -37,10 +35,10 @@ class Circle extends Shape {
     super(color, color2, text);
   }
   draw() {
-    return `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <circle cx="150" cy="150" r="100" fill="${this.color}" stroke="${this.color2}" stroke-width="10"/>
-        <text x="150" y="150" fill="${this.color2}" stroke="${this.color2}" stroke-width="10">${this.text}</text>
-        </svg>`;
+    return `<svg version="1.1"
+    width="300" height="200"
+    xmlns="http://www.w3.org/2000/svg"><circle cx="150" cy="100" r="100" fill="${this.color}" />
+    <text x="150" y="113" font-size="60" text-anchor="middle" fill="${this.color2}">${this.text}</text></svg>`;
   }
 }
 
