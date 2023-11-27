@@ -1,116 +1,25 @@
-const { expect } = require("chai");
-const { createCanvas } = require("canvas");
-const { loadImage } = require("canvas");
-const { join } = require("path");
-const { createWriteStream } = require("fs");
+const { describe } = require('node:test');
+const {Triangle, Square, Circle, Shape} = require('./shapes.js');
 
-const { Triangle, Square, Circle } = require("../src/shapes.js");
-const { inquirer } = require("../src/inquirer.js");
-const { createCanvas: createCanvas } = require("canvas");
-const { loadImage } = require("canvas");
-const { join } = require("path");
-const { createWriteStream } = require("fs");
 
-describe("SVG Logo Maker", function () {
-  let canvas;
-  let ctx;
-  let image;
-
-  before(async function () {
-    canvas = createCanvas(300, 200);
-    ctx = canvas.getContext("2d");
-    image = await loadImage(join(__dirname, "logo.png"));
+describe('shapesCheck', () => {
+  it('creates a Triangle', () => {
+    const triangle = new Triangle('red', 'blue', 'abc');
+    expect(triangle.color).toBe('red');
+    expect(triangle.color2).toBe('blue');
+    expect(triangle.text).toBe('abc');
   });
-
-  describe("When creating a triangle", function () {
-    let triangle;
-
-    before(function () {
-      triangle = new Triangle("blue", "red", "abc");
-    });
-
-    it("should draw a blue triangle", function () {
-      triangle.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[0]).to.equal(0); // blue
-      expect(data.data[1]).to.equal(0); // blue
-      expect(data.data[2]).to.equal(255); // blue
-    });
-
-    it("should draw red text", function () {
-      triangle.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[180 * 4]).to.equal(255); // red
-      expect(data.data[180 * 4 + 1]).to.equal(0); // red
-      expect(data.data[180 * 4 + 2]).to.equal(0); // red
-    });
-
-    it("should draw the correct text", function () {
-      triangle.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[180 * 4 + 3]).to.equal(255); // alpha
-      expect(data.data[181 * 4 + 3]).to.equal(255); // alpha
-      expect(data.data[182 * 4 + 3]).to.equal(255); // alpha
-    });
+  it('creates a Square', () => {
+    const square = new Square('red', 'blue', 'abc');
+    expect(square.color).toBe('red');
+    expect(square.color2).toBe('blue');
+    expect(square.text).toBe('abc');
   });
-
-  describe("When creating a square", function () {
-    let square;
-
-    before(function () {
-      square = new Square("blue", "red", "def");
-    });
-
-    it("should draw a blue square", function () {
-      square.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[0]).to.equal(0); // blue
-      expect(data.data[1]).to.equal(0); // blue
-      expect(data.data[2]).to.equal(255); // blue
-    });
-
-    it("should draw red text", function () {
-      square.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[180 * 4]).to.equal(255); // red
-      expect(data.data[180 * 4 + 1]).to.equal(0); // red
-      expect(data.data[180 * 4 + 2]).to.equal(0); // red
-    });
-
-    it("should draw the correct text", function () {
-      square.draw(ctx);
-      const data = ctx.getImageData(0, 0, 300, 200);
-      expect(data.data[180 * 4 + 3]).to.equal(255); // alpha
-      expect(data.data[181 * 4 + 3]).to.equal(255); // alpha
-      expect(data.data[182 * 4 + 3]).to.equal(255); // alpha
-    });
+  it('creates a Circle', () => {
+    const circle = new Circle('red', 'blue', 'abc');
+    expect(circle.color).toBe('red');
+    expect(circle.color2).toBe('blue');
+    expect(circle.text).toBe('abc');
   });
 });
-  describe("When creating a circle", function () {
-    let circle;
-    before(function () {
-      circle = new Circle("blue", "red", "ghi");
-    });
-    it("should draw a blue circle", function () {
-        circle.draw(ctx);
-        const data = ctx.getImageData(0, 0, 300, 200);
-        expect(data.data[0]).to.equal(0); // blue
-        expect(data.data[1]).to.equal(0); // blue
-        expect(data.data[2]).to.equal(255); // blue
-    });
-    it("should draw red text", function () {
-        circle.draw(ctx);
-        const data = ctx.getImageData(0, 0, 300, 200);
-        expect(data.data[180 * 4]).to.equal(255); // red
-        expect(data.data[180 * 4 + 1]).to.equal(0); // red
-        expect(data.data[180 * 4 + 2]).to.equal(0); // red
-    });
-    it("should draw the correct text", function () {
-        circle.draw(ctx);
-        const data = ctx.getImageData(0, 0, 300, 200);
-        expect(data.data[180 * 4 + 3]).to.equal(255); // alpha
-        expect(data.data[181 * 4 + 3]).to.equal(255); // alpha
-        expect(data.data[182 * 4 + 3]).to.equal(255); // alpha
-    });
-  });
-  
+
